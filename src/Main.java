@@ -1,49 +1,66 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public void main(String[] args) {
+public class Main {
 
-    String[]cities={"Cape Town","Port Elizabeth","Pretoria"};
-    String[]consoles={"PS5","XBOX","SWITCH"};
+    public static void main(String[] args) {
 
-    int[][] sales={{1000,2000,3000};{2000,3000,4000};{1500,1100,1200}};
+        String[] cities = {"CAPE TOWN", "PORT ELIZABETH", "PRETORIA"};
+        String[] consoles = {"PS5", "XBOX", "SWITCH"};
 
-    int[]cityTotals = new int [cities.length];
+        int[][] sales = {
+                {1000, 2000, 3000},
+                {2000, 3000, 4000},
+                {1500, 1100, 1200}
+        };
 
-    System.out.println("--------------------------------------------------");
-    System.out.println("Gaming console report");
-    System.out.println("---------------------------------------------------");
-    System.out.println("%-20s %-10s %-10s %-10s%n,"",consoles[0],consoles[1],consoles[2]);"
+        int[] cityTotals = new int[cities.length];
 
-    for (int j = 0;j < consoles.length,j++)
+        System.out.println("--------------------------------------------------");
+        System.out.println("GAMING CONSOLE REPORT");
+        System.out.println("--------------------------------------------------");
 
-    {
-        System.out.println("%-10d",sales[i][j]);
-        cityTotals[i] + sales[i][j];
-    }
+        System.out.printf("%-20s %-10s %-10s %-10s%n",
+                "", consoles[0], consoles[1], consoles[2]);
 
-    System.out.println();
-    System.out.println("------------------------------------------------");
-    System.out.println("Console sales totals for each city");
-    System.out.println("---------------------------------------------------");
 
-    for (int i = 0; i <cities.length;i++){
-        System.out.println(cities[i] + "\t" + cityTotals[i]);
+        for (int i = 0; i < cities.length; i++) {
+
+            System.out.printf("%-20s", cities[i]);
+
+            for (int j = 0; j < consoles.length; j++) {
+                System.out.printf("%-10d", sales[i][j]);
+
+                cityTotals[i] += sales[i][j];
+            }
+
+            System.out.println();
         }
-    int highestSales + cityTotals[0];
-    int highestCityIndex = 0;
 
-    for (int i = 1;i <cityTotals.length,++){
+        System.out.println("--------------------------------------------------");
+        System.out.println("CONSOLE SALES TOTALS FOR EACH CITY");
+        System.out.println("--------------------------------------------------");
 
-        if (cityTotals[i] > highestSales){
-            highestSales = cityTotals[i];
-            highestCityIndex = i;
+        
+        for (int i = 0; i < cities.length; i++) {
+            System.out.println(cities[i] + "\t" + cityTotals[i]);
         }
+
+
+        int highestSales = cityTotals[0];
+        int highestCityIndex = 0;
+
+        for (int i = 1; i < cityTotals.length; i++) {
+
+            if (cityTotals[i] > highestSales) {
+                highestSales = cityTotals[i];
+                highestCityIndex = i;
+            }
+        }
+
+        System.out.println();
+        System.out.println("CITY WITH THE MOST SALES: "
+                + cities[highestCityIndex]);
+
+        System.out.println("--------------------------------------------------");
     }
-
-    System.out.println();
-    System.out.println("City With The Most Sales: + cities[highestCityIndex]");
-    System.out.println("---------------------------------------------------------------------");
-
 
 }
 
